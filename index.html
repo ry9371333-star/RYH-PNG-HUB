@@ -1,240 +1,206 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RYH PNG Hub — Transparent PNG खोजें और उनके लाइसेंस व स्रोत देखें।">
-<title>RYH PNG Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RYH PNG HUB</title>
 <style>
-:root{--panel:#151d32;--muted:#aab5cc;--text:#f7f9ff;--accent:#7c5cff}
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(160deg,#111a35,#080c18 65%);color:var(--text);font:16px/1.5 system-ui,sans-serif}
-header{padding:42px 18px 28px;text-align:center;background:radial-gradient(ellipse at top,#33246d 0,transparent 65%)}
-.logo{display:inline-flex;align-items:center;gap:10px;font-weight:900;font-size:clamp(26px,5vw,42px)}
-.mark{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--accent),#22c9a6)}
-.tag{color:var(--muted);margin:8px auto 22px;max-width:650px}
-.search{display:flex;gap:8px;max-width:680px;margin:auto;padding:7px;background:#fff;border-radius:14px}
-.search input{flex:1;min-width:0;border:0;outline:0;padding:12px;color:#182039;font-size:16px}
-button,.btn{border:0;border-radius:10px;background:var(--accent);color:white;padding:11px 17px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
-main{max-width:1120px;margin:auto;padding:22px 18px 60px}
-h2{font-size:21px;margin:20px 0 12px}
-.categories{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
-.categories button{background:#202a43;color:#e8edff;border:1px solid #34415f}
-.categories button.active{background:var(--accent);border-color:var(--accent)}
-.note{color:var(--muted);font-size:13px;margin:12px 0 18px}
-.status{color:#cbd5ed;margin:18px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:15px}
-.card{background:var(--panel);border:1px solid #283451;border-radius:15px;overflow:hidden;min-width:0}
-.preview{height:175px;display:grid;place-items:center;background-color:#f4f5f8;background-image:linear-gradient(45deg,#ddd 25%,transparent 25%),linear-gradient(-45deg,#ddd 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ddd 75%),linear-gradient(-45deg,transparent 75%,#ddd 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}
+body{margin:0;background:#101426;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:30px 15px;background:linear-gradient(135deg,#512da8,#171c3c)}
+h1{font-size:32px;margin:5px}
+header p{color:#ddd}
+.search{display:flex;max-width:650px;margin:20px auto;gap:8px}
+input{flex:1;min-width:0;padding:14px;border:0;border-radius:9px;font-size:16px}
+button{padding:12px 17px;border:0;border-radius:9px;background:#8b5cf6;color:white;font-weight:bold;cursor:pointer}
+main{max-width:1100px;margin:auto;padding:15px}
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 22px}
+.categories button{background:#252d49}
+.categories button.active{background:#8b5cf6}
+#status{color:#ddd;margin:15px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.card{background:#202943;border-radius:12px;overflow:hidden}
+.preview{height:170px;background-color:#eee;background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:20px 20px;display:grid;place-items:center}
 .preview img{max-width:100%;max-height:100%;object-fit:contain}
-.info{padding:12px}
-.title{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.meta{font-size:12px;color:var(--muted);margin:4px 0 10px}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.actions a{font-size:13px;padding:8px 10px}
-footer{text-align:center;color:var(--muted);padding:25px 15px;border-top:1px solid #26314b;font-size:13px}
-@media(max-width:520px){
-.search{flex-direction:column;background:transparent}
-.search input{border-radius:10px}
-.search button{width:100%}
+.info{padding:10px}
+.name{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:10px}
+a{display:inline-block;text-decoration:none;color:white;background:#6844ce;padding:8px;border-radius:7px;font-size:12px;margin:2px}
+#more{display:block;margin:25px auto}
+footer{text-align:center;padding:25px;color:#aaa}
+@media(max-width:500px){
+.search{flex-direction:column}
 .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.preview{height:145px}
+.preview{height:140px}
 }
 </style>
 </head>
 <body>
+
 <header>
-  <div class="logo"><span class="mark">PNG</span> RYH PNG Hub</div>
-  <p class="tag">अपनी पसंद की Transparent PNG खोजें और उनके लाइसेंस व डाउनलोड स्रोत को जाँचकर इस्तेमाल करें।</p>
-  <form class="search" id="searchForm">
-    <input id="query" type="search" placeholder="जैसे: gaming, flower, logo..." aria-label="PNG खोजें">
-    <button type="submit">Search PNG</button>
-  </form>
+<h1>🖼️ RYH PNG HUB</h1>
+<p>Free PNG Search Website</p>
+<form class="search" id="form">
+<input id="q" placeholder="PNG खोजें जैसे Cut, Gaming, Flower..." required>
+<button type="submit">SEARCH</button>
+</form>
 </header>
 
 <main>
-  <h2>PNG Categories</h2>
-  <div class="categories" id="categories">
-    <button class="active" data-q="transparent">All PNG</button>
-    <button data-q="youtube">YouTube</button>
-    <button data-q="gaming">Gaming</button>
-    <button data-q="logo">Logo</button>
-    <button data-q="flower">Flowers</button>
-    <button data-q="cartoon">Cartoon</button>
-    <button data-q="festival">Festival</button>
-    <button data-q="nature">Nature</button>
-    <button data-q="scratch effect">Cut PNG</button>
-    <button data-q="red scratch">Red Scratch</button>
-    <button data-q="scratch texture">Scratch Texture</button>
-    <button data-q="crack effect">Crack Effect</button>
-    <button data-q="makeup special effect">Makeup FX</button>
-  </div>
+<h2>PNG Categories</h2>
+<div class="categories" id="categories">
+<button class="active" data-q="transparent png">All PNG</button>
+<button data-q="youtube logo png">YouTube</button>
+<button data-q="gaming png">Gaming</button>
+<button data-q="flower png">Flowers</button>
+<button data-q="cartoon png">Cartoon</button>
+<button data-q="car png">Cars</button>
+<button data-q="red scratch effect png">Cut PNG</button>
+<button data-q="red scratch texture png">Red Scratch</button>
+<button data-q="crack texture png">Crack Effect</button>
+<button data-q="fire png">Fire</button>
+<button data-q="nature png">Nature</button>
+<button data-q="festival png">Festival</button>
+</div>
 
-  <p class="note">Wikimedia Commons से PNG खोजें। हर इमेज का लाइसेंस अलग हो सकता है। इस्तेमाल से पहले स्रोत पर शर्तें ज़रूर पढ़ें।</p>
-  <div class="status" id="status">PNG खोजने के लिए ऊपर सर्च करें या कोई कैटेगरी चुनें।</div>
-  <section class="grid" id="results" aria-live="polite"></section>
-  <div style="text-align:center;margin-top:22px">
-    <button id="loadMore" hidden>और PNG दिखाओ</button>
-  </div>
+<div id="status">कोई कैटेगरी चुनें या PNG सर्च करें।</div>
+<div class="grid" id="results"></div>
+<button id="more" hidden>और PNG दिखाओ</button>
 </main>
 
-<footer>© <span id="year"></span> RYH PNG Hub · इमेज के अधिकार उनके मूल रचनाकारों के पास हैं।</footer>
+<footer>© 2026 RYH PNG HUB</footer>
 
 <script>
-const form=document.getElementById('searchForm');
-const query=document.getElementById('query');
-const results=document.getElementById('results');
-const statusBox=document.getElementById('status');
-const loadMore=document.getElementById('loadMore');
+const form=document.getElementById("form");
+const input=document.getElementById("q");
+const results=document.getElementById("results");
+const statusBox=document.getElementById("status");
+const more=document.getElementById("more");
 
-let currentQuery='';
-let continuation=null;
-let shown=0;
+let current="";
+let next=null;
+let busy=false;
 
-document.getElementById('year').textContent=new Date().getFullYear();
+async function searchPNG(term,append=false){
+ if(busy)return;
+ if(!append){
+  current=term;
+  next=null;
+  results.innerHTML="";
+  more.hidden=true;
+ }
+ busy=true;
+ statusBox.textContent="PNG खोजी जा रही हैं...";
 
-async function search(q,append=false){
-  if(!q.trim()){
-    statusBox.textContent='कृपया कुछ खोजें।';
-    return;
+ try{
+  const params=new URLSearchParams({
+   action:"query",
+   generator:"search",
+   gsrsearch:"filemime:image/png "+term,
+   gsrnamespace:"6",
+   gsrlimit:"30",
+   prop:"imageinfo",
+   iiprop:"url|mime",
+   iiurlwidth:"500",
+   format:"json",
+   origin:"*"
+  });
+
+  if(append && next){
+   Object.entries(next).forEach(([k,v])=>params.set(k,v));
   }
 
-  if(!append){
-    currentQuery=q;
-    continuation=null;
-    shown=0;
-    results.innerHTML='';
-    loadMore.hidden=true;
+  const response=await fetch(
+   "https://commons.wikimedia.org/w/api.php?"+params.toString()
+  );
+
+  if(!response.ok)throw new Error("API error");
+
+  const data=await response.json();
+  next=data.continue||null;
+
+  const pages=Object.values(data.query?.pages||{});
+  const pngs=pages.map(page=>{
+   const info=page.imageinfo?.[0];
+   if(!info || info.mime!=="image/png")return null;
+   return {
+    title:page.title.replace("File:",""),
+    image:info.thumburl||info.url,
+    original:info.url
+   };
+  }).filter(Boolean);
+
+  if(!pngs.length && !append){
+   statusBox.textContent="PNG नहीं मिली। दूसरा शब्द लिखकर खोजें।";
+   more.hidden=true;
+   return;
   }
 
-  statusBox.textContent='PNG खोजी जा रही हैं…';
-
-  try{
-    const params=new URLSearchParams({
-      action:'query',
-      generator:'search',
-      gsrsearch:q+' filetype:bitmap',
-      gsrnamespace:'6',
-      gsrlimit:'50',
-      prop:'imageinfo',
-      iiprop:'url|extmetadata|mime',
-      iiurlwidth:'480',
-      iiextmetadatafilter:'LicenseShortName|Artist|Credit',
-      format:'json',
-      origin:'*'
-    });
-
-    if(append && continuation){
-      Object.entries(continuation).forEach(([k,v])=>params.set(k,v));
-    }
-
-    const response=await fetch('https://commons.wikimedia.org/w/api.php?'+params.toString());
-
-    if(!response.ok) throw new Error('HTTP '+response.status);
-
-    const data=await response.json();
-    continuation=data.continue||null;
-
-    const pages=Object.values(data.query?.pages||{});
-
-    const items=pages.map(page=>{
-      const info=page.imageinfo?.[0];
-
-      return info?{
-        title:page.title,
-        thumb:info.thumburl||info.url,
-        url:info.url,
-        source:info.descriptionurl,
-        mime:info.mime,
-        license:info.extmetadata?.LicenseShortName?.value||'लाइसेंस स्रोत पर देखें',
-        artist:info.extmetadata?.Artist?.value||info.extmetadata?.Credit?.value||'मूल रचनाकार'
-      }:null;
-
-    }).filter(x=>x && x.mime==='image/png' && x.thumb && x.url);
-
-    if(!items.length && !shown){
-      statusBox.textContent='इस खोज में PNG नहीं मिलीं। दूसरा शब्द आज़माएँ।';
-      return;
-    }
-
-    shown+=items.length;
-
-    statusBox.textContent=shown+' PNG दिखाई गईं। हर इमेज का लाइसेंस स्रोत पर जाँचें।';
-
-    for(const item of items){
-      const card=document.createElement('article');
-      card.className='card';
-
-      const preview=document.createElement('div');
-      preview.className='preview';
-
-      const img=document.createElement('img');
-      img.loading='lazy';
-      img.alt=item.title;
-      img.src=item.thumb;
-      preview.appendChild(img);
-
-      const info=document.createElement('div');
-      info.className='info';
-
-      const title=document.createElement('div');
-      title.className='title';
-      title.textContent=item.title.replace(/^File:/,'');
-
-      const meta=document.createElement('div');
-      meta.className='meta';
-      meta.textContent='Creator: '+item.artist+' · License: '+item.license;
-
-      const actions=document.createElement('div');
-      actions.className='actions';
-
-      const source=document.createElement('a');
-      source.className='btn';
-      source.href=item.source;
-      source.target='_blank';
-      source.rel='noopener noreferrer';
-      source.textContent='License / Source';
-
-      const imageLink=document.createElement('a');
-      imageLink.className='btn';
-      imageLink.href=item.url;
-      imageLink.target='_blank';
-      imageLink.rel='noopener noreferrer';
-      imageLink.textContent='Open PNG';
-
-      actions.append(source,imageLink);
-      info.append(title,meta,actions);
-      card.append(preview,info);
-      results.appendChild(card);
-    }
-
-    loadMore.hidden=!continuation;
-
-  }catch(e){
-    statusBox.textContent='सर्च सेवा से जवाब नहीं मिला। इंटरनेट कनेक्शन जाँचें या बाद में कोशिश करें।';
+  if(!pngs.length && append){
+   statusBox.textContent="आगे कोई PNG नहीं मिली।";
+   more.hidden=true;
+   return;
   }
+
+  pngs.forEach(item=>{
+   const card=document.createElement("div");
+   card.className="card";
+
+   const preview=document.createElement("div");
+   preview.className="preview";
+
+   const img=document.createElement("img");
+   img.loading="lazy";
+   img.src=item.image;
+   img.alt=item.title;
+   preview.appendChild(img);
+
+   const info=document.createElement("div");
+   info.className="info";
+
+   const name=document.createElement("div");
+   name.className="name";
+   name.textContent=item.title;
+
+   const link=document.createElement("a");
+   link.href=item.original;
+   link.target="_blank";
+   link.rel="noopener";
+   link.textContent="Open PNG";
+
+   info.append(name,link);
+   card.append(preview,info);
+   results.appendChild(card);
+  });
+
+  statusBox.textContent="कुल "+results.children.length+" PNG दिखाई गईं।";
+  more.hidden=!next;
+
+ }catch(error){
+  statusBox.textContent="सर्च नहीं हो पाई। इंटरनेट या Wikimedia सेवा जाँचें और फिर कोशिश करें।";
+  more.hidden=true;
+ }finally{
+  busy=false;
+ }
 }
 
-form.addEventListener('submit',e=>{
-  e.preventDefault();
-  document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
-  search(query.value);
+form.addEventListener("submit",e=>{
+ e.preventDefault();
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ searchPNG(input.value.trim());
 });
 
-loadMore.addEventListener('click',()=>{
-  if(continuation) search(currentQuery,true);
+document.getElementById("categories").addEventListener("click",e=>{
+ const btn=e.target.closest("button[data-q]");
+ if(!btn)return;
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+ input.value=btn.dataset.q;
+ searchPNG(btn.dataset.q);
 });
 
-document.getElementById('categories').addEventListener('click',e=>{
-  const b=e.target.closest('button[data-q]');
-  if(!b)return;
-
-  document.querySelectorAll('.categories button').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');
-
-  query.value=b.dataset.q==='transparent'?'transparent png':b.dataset.q+' png';
-  search(query.value);
+more.addEventListener("click",()=>{
+ if(next)searchPNG(current,true);
 });
 </script>
 </body>
